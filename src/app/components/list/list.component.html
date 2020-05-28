@@ -1,0 +1,14 @@
+<div class="header">
+    <h1> Customers </h1>
+    <button mat-raised-button color="primary" (click)="createNewCustomer()"> New Customer </button>
+</div>
+
+<mat-table mat-table [dataSource]="customerListData">
+    <ng-container *ngFor="let columnDef of columnDefs" matColumnDef={{columnDef}}>
+        <mat-header-cell *matHeaderCellDef> {{ columnDef }} </mat-header-cell>
+        <mat-cell *matCellDef="let customer"> {{ customer[columnDef] || '-' }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columnDefs"></mat-header-row>
+    <mat-row class="row" *matRowDef="let row; columns: columnDefs;" (click)="editUser(row)"></mat-row>
+</mat-table>

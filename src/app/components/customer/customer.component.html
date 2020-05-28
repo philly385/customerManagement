@@ -1,0 +1,87 @@
+<div class="header">
+    <h1>Edit Customer</h1>
+    <button mat-raised-button color="primary" [disabled]="!this.form.valid" (click)="onSave()"> Save </button>
+</div>
+
+<div class="page">
+    <form [formGroup]="form">
+        <div class="left">
+            <mat-form-field>
+                <mat-label>Number</mat-label>
+                <input type="number" matInput formControlName="number">
+                <mat-error> {{ getNumberErrorMessage() }} </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+                <mat-error> {{ errorMessages.required }} </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>E-Mail</mat-label>
+                <input matInput formControlName="email">
+                <mat-error> {{ errorMessages.emailInvalid }} </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Tel 1</mat-label>
+                <input matInput formControlName="tel1">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Tel 2</mat-label>
+                <input matInput formControlName="tel2">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Fax</mat-label>
+                <input matInput formControlName="fax">
+            </mat-form-field>
+        </div>
+    
+        <div class="right">
+            
+            <mat-form-field>
+                <mat-label>Type</mat-label>
+                <mat-select matInput formControlName="type">
+                    <mat-option *ngFor="let option of selectOptions.type" value="{{ option }}">{{ option }} </mat-option>
+                </mat-select>
+                <mat-error> {{ errorMessages.required }} </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Language</mat-label>
+                <mat-select matInput formControlName="language">
+                    <mat-option *ngFor="let option of selectOptions.language" value="{{ option }}">{{ option }} </mat-option>
+                </mat-select>
+                <mat-error> {{ errorMessages.required }} </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Vat Id</mat-label>
+                <input matInput formControlName="vatId">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Default Due After Days</mat-label>
+                <input type="number" matInput formControlName="defaultDueAfterDays">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Custom Note</mat-label>
+                <input matInput formControlName="customNote">
+            </mat-form-field>
+        </div>
+    </form>
+    
+    <div>
+        <h2>Addresses</h2>
+        <div class="flex-wrapper" *ngFor="let form of form.get('addresses')['controls']; index as i">
+            <customer-address  [addressForm]="form"></customer-address>
+            <button mat-raised-button class="delete-address" color="warn" (click)="deleteAddress(i)">X</button>
+        </div>
+    
+        <button mat-raised-button class="new-address" color="primary" (click)="addNewAddress()">Add new address</button>
+    </div>
+</div>

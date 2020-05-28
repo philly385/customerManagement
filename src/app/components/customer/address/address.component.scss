@@ -1,0 +1,49 @@
+form {
+    display: flex;
+    flex-direction: row;
+}
+
+.left, .right {
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.left {
+    padding-right: 15px;
+}
+
+mat-form-field {
+    width: 250px;
+}
+
+mat-divider {
+    margin-bottom: 20px;
+}
+
+.double-input {
+    display: flex;
+    flex-direction: row;
+
+    :first-child {
+        width: 180px;
+    }
+
+    :last-child {
+        width: 70px;
+    }
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.placeholder {
+    height: 40px;
+    padding-bottom: 17px;
+}

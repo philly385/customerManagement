@@ -1,0 +1,109 @@
+<form [formGroup]="addressForm">
+    <div class="left">
+        <mat-form-field>
+            <mat-label>Addresstype</mat-label>
+            <mat-select matInput formControlName="addressType">
+                <mat-option *ngFor="let option of selectOptions.addressType" value="{{ option}}">{{ option }}</mat-option>
+            </mat-select>
+            <mat-error> {{ errorMessages.required }} </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Salutation</mat-label>
+            <mat-select matInput formControlName="salutation">
+                <mat-option *ngFor="let option of selectOptions.salutation" value="{{ option}}">{{ option }}</mat-option>
+            </mat-select>
+            <mat-error> {{ errorMessages.required }} </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Firstname</mat-label>
+            <input matInput formControlName="firstName">
+            <mat-error> {{ errorMessages.required }} </mat-error>
+        </mat-form-field>
+
+        <div class="double-input">
+            <mat-form-field>
+                <mat-label>Street</mat-label>
+                <input matInput formControlName="street">
+                <mat-error> {{ errorMessages.required }} </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Housenumber</mat-label>
+                <input type="number" matInput formControlName="housenumber">
+                <mat-error> {{ errorMessages.required }} </mat-error>
+            </mat-form-field>
+        </div>
+
+        <mat-form-field>
+            <mat-label>State</mat-label>
+            <mat-select matInput formControlName="state">
+                <mat-option *ngFor="let option of selectOptions.state" value="{{ option}}">{{ option }}</mat-option>
+            </mat-select>
+            <mat-error> {{ errorMessages.required }} </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>E-Mail</mat-label>
+            <input matInput formControlName="email">
+            <mat-error> Please enter a valid e-mail address </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Fax</mat-label>
+            <input matInput formControlName="fax">
+            <mat-error></mat-error>
+        </mat-form-field>
+    </div>
+    
+    <div class="right">
+        <mat-form-field>
+            <mat-label>Company</mat-label>
+            <input matInput formControlName="company">
+            <mat-error> {{ errorMessages.required }} </mat-error>
+        </mat-form-field>
+
+        <div class="placeholder"></div>
+
+        <mat-form-field>
+            <mat-label>LastName</mat-label>
+            <input matInput formControlName="lastName">
+            <mat-error> {{ errorMessages.required }} </mat-error>
+        </mat-form-field>
+
+        <div class="double-input">
+            <mat-form-field>
+                <mat-label>City</mat-label>
+                <input matInput formControlName="city">
+                <mat-error> {{ errorMessages.required }} </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Zipcode</mat-label>
+                <input type="number" matInput formControlName="zip">
+                <mat-error> {{ errorMessages.required }} </mat-error>
+            </mat-form-field>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Countrycode</mat-label>
+            <mat-select matInput formControlName="countryCode">
+                <mat-option *ngFor="let option of selectOptions.countryCode" value="{{ option}}">{{ option }}</mat-option>
+            </mat-select>
+            <mat-error> {{ errorMessages.required }} </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Tel 1</mat-label>
+            <input matInput formControlName="tel1">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Tel 2</mat-label>
+            <input matInput formControlName="tel2">
+        </mat-form-field>
+    </div>
+</form>
+
+<mat-divider></mat-divider>
