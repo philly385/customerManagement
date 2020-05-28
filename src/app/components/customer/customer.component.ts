@@ -8,7 +8,6 @@ import { languageSelectOptions } from './_helpers/language-select-options'
 import { customerTypeOptions } from './_helpers/customer-type-select-options'
 
 const EMAIL_REGEX = /\S+@\S+\.\S+/
-// const PHONE_REGEX = /([0-9-+() ])+/g
 
 @Component({
     selector: 'customer-component',
@@ -164,13 +163,16 @@ export class CustomerComponent {
     }
 
     onSave() {
-        this.form.updateValueAndValidity()
         const customer = Object.assign({}, this.form.value)
+
         if (this.isEdit) {
             this.customerDataService.editCustomer(this.customerId, customer)
+            console.log('Customer updated 🎉')
         } else {
             this.customerDataService.addCustomer(customer)
+            console.log('Customer created 🎉')
         } 
+
         this.router.navigate(['list'])
     }
 }

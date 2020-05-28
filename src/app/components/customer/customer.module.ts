@@ -20,7 +20,7 @@ import { MatButtonModule } from '@angular/material/button'
         MatSelectModule,
         MatCardModule,
         MatDividerModule,
-        MatButtonModule
+        MatButtonModule,
     ],
     exports: [ CustomerComponent ],
     declarations: [ CustomerComponent, AddressComponent ],

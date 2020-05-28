@@ -77,9 +77,8 @@
     
     <div>
         <h2>Addresses</h2>
-        <div class="flex-wrapper" *ngFor="let form of form.get('addresses')['controls']; index as i">
-            <customer-address  [addressForm]="form"></customer-address>
-            <button mat-raised-button class="delete-address" color="warn" (click)="deleteAddress(i)">X</button>
+        <div *ngFor="let form of form.get('addresses')['controls']; index as i">
+            <customer-address [addressForm]="form" [index]="i" (deleteAddress)="deleteAddress($event)"></customer-address>
         </div>
     
         <button mat-raised-button class="new-address" color="primary" (click)="addNewAddress()">Add new address</button>

@@ -10,7 +10,8 @@ const COLUMN_DEFS = [
     'tel1',
     'tel2',
     'type',
-    'vatId'
+    'vatId',
+    'customNote'
 ]
 
 @Component({

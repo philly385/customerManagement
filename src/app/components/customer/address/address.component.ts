@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { FormGroup } from '@angular/forms'
 import { addressTypeSelectOptions } from '../_helpers/address-type-select-options'
 import { salutationSelectOptions } from '../_helpers/salutation-select-options'
@@ -20,5 +20,11 @@ export class AddressComponent {
         state: stateSelectOptions
     }
     errorMessages = validationErrorMessages
+    @Output('deleteAddress') deleteAddress = new EventEmitter()
     @Input('addressForm') addressForm: FormGroup
+    @Input('index') index: number
+
+    deleteClicked() {
+        this.deleteAddress.emit(this.index.toString())
+    }
 }
